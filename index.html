@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>カラオケ高揚感 追加データ候補</title>
+<style>
+:root{--bg:#fafaf7;--fg:#222;--mut:#666;--card:#fff;--bd:#e3e1da;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1c1e;--fg:#eee;--mut:#aaa;--card:#26282b;--bd:#3a3d41}}
+:root[data-theme="dark"]{--bg:#1b1c1e;--fg:#eee;--mut:#aaa;--card:#26282b;--bd:#3a3d41}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.6}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:1.4rem;margin:0 0 4px}h2{font-size:1.1rem;margin:28px 0 10px;padding-left:8px;border-left:4px solid #e07a3f}
+.sub{color:var(--mut);font-size:.85rem;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px}
+.card h3{font-size:.95rem;margin:0 0 2px}.card p{font-size:.8rem;color:var(--mut);margin:0 0 8px}
+.w{position:relative;height:250px}
+.tb{width:100%;border-collapse:collapse;font-size:.82rem;background:var(--card);border:1px solid var(--bd)}.tb th,.tb td{padding:7px 9px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}.tb th{color:var(--mut);font-weight:600}.tw{overflow-x:auto}</style></head><body><main>
+<h1>カラオケ高揚感 追加データ候補</h1>
+<p class="sub">対象: 「カラオケに行く」と答えた79名（非利用者のみ16名）。p値はFisher検定、多重比較は未補正なので目安です。</p>
+<div id="root"></div><h2>聞き取りメモ × アンケートの対応表</h2><p class="sub" style="margin-bottom:8px">「メモに記載なし」は、このメモ内に無いだけで、実際には聞けている可能性があります。</p><div class="tw"><table class="tb"><tr><th>事業者の工夫（聞き取り）</th><th>アンケート側のデータ</th><th>判定</th></tr><tr><td>学割、アプリのアンケート→割引券</td><td>非利用者の条件で「割引」11/16名（69%）、「費用が高い」4名</td><td>一致</td></tr><tr><td>音質重視、自社開発機材、気にせず歌える音響</td><td>最大要因は聴覚55.7%。採点の「音程バー」目的63.3%</td><td>一致</td></tr><tr><td>大型モニター、高級感、暖色ライト、ミラーボール、LED</td><td>視覚を最大要因に選んだのは11名（13.9%）</td><td>供給が厚め</td></tr><tr><td>本人映像・ライブ映像の契約</td><td>要望に「360度ライブ風景」「本人映像を増やして」「ステージ」</td><td>一致</td></tr><tr><td>アニソン・ボカロ豊富、ポピュラー楽曲</td><td>JPOP 88.6%、流行曲46.8%、アニソン・ボカロ36.7%。要望の選曲・曲数4件</td><td>一致</td></tr><tr><td>パーティーゲーム、リモートワークなど歌以外の利用</td><td>目的は歌唱86.1%、自習・仕事3.8%。非利用者の条件で3名</td><td>需要は小さめ</td></tr><tr><td>（メモに記載なし）採点機能</td><td>利用96.2%、「高い点数が出たとき」54.4%</td><td>ギャップ</td></tr><tr><td>（メモに記載なし）少人数・身内向けの空間、1人利用</td><td>2〜3人57.0%、4〜5人32.9%、6人以上0%。非利用者の条件「1人カラオケ」6名</td><td>ギャップ</td></tr><tr><td>（メモに記載なし）換気・除湿、マイク清掃などの快適性</td><td>要望に3件（換気と除湿機、マイク掃除、個室の水道）</td><td>ギャップ</td></tr><tr><td>シニア向けの録音→CD、赤ちゃん連れ対応</td><td>調査対象が高校生のため該当なし</td><td>対象外</td></tr></table></div></main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const O='#e07a3f',B='#3b7dd8',G='#9aa3ad',P='#8a63c9';
+const N3=['1人 (n=8)','2〜3人 (n=45)','4〜5人 (n=26)'];
+const S=[
+['優先度高 ─ 社会系と達成系の比較',[
+{t:'① 「気分が高まるとき」の回答パターン',n:'人単位で再分類。社会系=みんなで歌う/盛り上げてもらう/拍手、達成系=高得点/難曲。',h:1,u:'人',l:['社会系のみ','達成系のみ','両方','どちらもなし'],d:[['人数',[23,18,27,11],O]]},
+{t:'① 社会系 vs 達成系（正規化）',n:'社会系を選んだ人50名、達成系45名。差は有意でない（p=0.53）。',u:'%',m:100,l:['1項目でも選んだ人の割合','項目あたり選択率（社3・達2で正規化）'],d:[['社会系',[63.3,34.2],O],['達成系',[57,36.7],B]]},
+{t:'② 人数 × 高揚感の原因',n:'人的要因は人数とともに上昇（傾向検定 p≈0.01）。1人はn=8で参考値。',u:'%',m:100,st:1,l:N3,d:[['人的要因',[0,26.7,46.2],O],['聴覚',[75,55.6,50],B],['視覚',[25,17.8,3.8],G]]},
+{t:'③ 人数 × 気分が高まるとき',n:'達成系は少人数で高く、社会系は人数によらずほぼ一定。「高得点」の4〜5人 vs 他は p=0.057。',u:'%',m:100,l:N3,d:[['社会系',[62.5,62.2,65.4],O],['達成系',[87.5,62.2,38.5],B],['「高い点数が出たとき」',[87.5,57.8,38.5],P]]},
+{t:'④ 採点目的 × 人的要因を選んだ割合',n:'自己評価・上達系 p=0.016、音程バー p=0.012、友達と競う p=0.63。',u:'%',m:100,l:['自己評価・上達系','音程バー','友達と競う'],d:[['その目的を挙げた人',[18.6,20,33.3],B],['挙げない人',[44.4,48.3,27.5],O]]},
+{t:'⑤ 予算 × 高揚感の原因',n:'1000円以上で人的要因が高い（p=0.02）。予算が一人当たりかは未確認。',u:'%',m:100,st:1,l:['1000円未満 (n=49)','1000円以上 (n=30)'],d:[['人的要因',[20.4,46.7],O],['聴覚',[65.3,40],B],['視覚',[14.3,13.3],G]]}
+]],
+['補助 ─ いずれも有意差なし',[
+{t:'頻度 × 高揚感の原因',n:'月1回以上 vs それ以下（人的 p=0.63）。',u:'%',m:100,st:1,l:['月1回以上 (n=38)','2〜3ヶ月に1回以下 (n=41)'],d:[['人的要因',[34.2,26.8],O],['聴覚',[47.4,63.4],B],['視覚',[18.4,9.8],G]]},
+{t:'滞在時間 × 高揚感の原因',n:'3時間以上 vs 未満（人的 p=0.61）。',u:'%',m:100,st:1,l:['2時間未満 (n=12)','2〜3時間 (n=41)','3時間以上 (n=26)'],d:[['人的要因',[25,29.3,34.6],O],['聴覚',[58.3,53.7,57.7],B],['視覚',[16.7,17.1,7.7],G]]},
+{t:'利用時間帯・ジャンル別の人的要因の割合',n:'洋楽はn=7と少数。いずれもp>0.19。',u:'%',m:100,l:['平日夜','休日昼','JPOP','アニソン・ボカロ','洋楽','流行りの曲'],d:[['あり',[35.3,30.5,30,34.5,57.1,35.1],O],['なし',[21.4,30,33.3,28,27.8,26.2],G]]}
+]],
+['追加の切り口 ─ 結論の信頼性',[
+{t:'聴覚・人的・視覚の割合と95%信頼区間',n:'聴覚−人的の差は25.3pt（95%CI 5.6〜45.0）。下限が0を超えるので、全体では聴覚が上。',u:'%',m:100,l:['聴覚 [44.7–66.1]','人的 [21.3–41.2]','視覚 [8.0–23.2]'],d:[['割合',[55.7,30.4,13.9],B]]},
+{t:'場面どうしの相関（φ係数）',n:'社会系どうし・達成系どうしはまとまり、系の間はほぼ無相関 → 2軸の分類は妥当。',l:['社会系内（みんなで×盛り上げ）','達成系内（高得点×難曲）','系の間（4組平均）'],u:'',d:[['φ',[0.38,0.31,0.04],P]]},
+{t:'分類の定義を変えても結論は変わらないか',n:'p=0.53／0.75／0.88／0.76。「拍手」の置き場所で順位が入れ替わる＝差があるとは言えない。',u:'%',m:100,l:['拍手を社会側','拍手を達成側','拍手を除外','みんなで vs 高得点'],d:[['社会系',[63.3,59.5,59.5,50.6],O],['達成系',[57,63.3,57,54.4],B]]},
+{t:'第三の軸「好きな曲を歌っているとき」',n:'全項目でトップ（79.7%）。人数が増えるほど低下。BPMそのものではない点に注意。',u:'%',m:100,l:N3,d:[['好きな曲',[87.5,82.2,73.1],G],['社会系',[62.5,62.2,65.4],O],['達成系',[87.5,62.2,38.5],B]]},
+{t:'原因別の「気分が高まるとき」プロファイル',n:'人的派は「盛り上げてもらう」58%（聴覚派・視覚派は27%）。聴覚派が「高得点」を特に選ぶわけではない。',u:'%',m:100,l:['好きな曲','高得点','みんなで','盛り上げ','難曲','拍手'],d:[['人的派 (n=24)',[79,50,50,58,29,25],O],['聴覚派 (n=44)',[82,57,52,27,14,11],B],['視覚派 (n=11)',[73,55,45,27,18,9],G]]},
+{t:'多変量解析：人的要因を選ぶオッズ比',n:'1が基準。4〜5人 p=0.051、予算1000円以上 p=0.041、自己評価系 p=0.19。n=79なので参考値。',u:'倍',l:['4〜5人（vs他）','予算1000円以上','自己評価系の採点目的'],d:[['オッズ比',[3.03,3.22,0.47],O]]}
+]],
+['小ネタ・補助',[
+{t:'採点目的の選択数（1人あたり）',n:'人的派は採点を多目的に使わない傾向。',u:'個',l:['人的派','聴覚派','視覚派'],d:[['平均',[1.62,2.25,2.36],B]]},
+{t:'「友達と点数を競う」を挙げた割合（人数別）',n:'人数と単調な関係はない（1人でも62%）。',u:'%',m:100,l:N3,d:[['競う',[62.5,44.4,53.8],P]]},
+{t:'利用目的 × 人的要因を選んだ割合',n:'遊び・交流系 n=14、歌唱のみ n=65。差なし（p=0.75）。',u:'%',m:100,l:['遊び・交流系','歌唱のみ'],d:[['人的要因',[35.7,29.2],O]]},
+{t:'要望の自由記述（11件）の分類',n:'「ない」とふざけ回答を除く。',h:1,u:'件',l:['選曲・曲数・提案','映像・空間演出','快適・衛生','歌唱支援・採点','歌以外の用途'],d:[['件数',[4,3,3,2,1],B]]},
+{t:'非利用者のカラオケへのイメージ',n:'複数回答、n=16。',h:1,u:'人',l:['楽しそう','魅力を感じない','ストレス発散','恥ずかしい','緊張しそう','騒がしい'],d:[['人数',[10,6,5,3,3,1],O]]}
+]],
+['参考 ─ 非利用者16名（複数回答）',[
+{t:'行かない理由',n:'設備を理由に挙げた人はいません。',h:1,u:'人',l:['行く機会がない','歌が苦手','費用が高い','その他'],d:[['人数',[13,4,4,3],B]]},
+{t:'行きたくなる条件',n:'最新設備は2名のみ。',h:1,u:'人',l:['割引','1人カラオケ','歌以外で利用','最新設備','その他'],d:[['人数',[11,6,3,2,3],O]]}
+]],
+['聞き取り調査 × アンケート',[
+{t:'事業者の工夫の種類 vs 利用者が選んだ最大要因',n:'事業者側は聞き取りメモの工夫を分類した割合（聴覚3・視覚/映像6・社会1の計10件）。件数は投資量ではない点に注意。',u:'%',m:100,l:['聴覚（音響）','視覚（映像・内装）','人的（社会・一体感）'],d:[['事業者の工夫の種類',[30,60,10],G],['利用者の最大要因',[55.7,13.9,30.4],O]]}
+]]];
+const fg=getComputedStyle(document.documentElement).getPropertyValue('--fg').trim()||'#222';
+const bd=getComputedStyle(document.documentElement).getPropertyValue('--bd').trim()||'#ddd';
+Chart.defaults.color=fg;Chart.defaults.font.size=12;
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>location.reload());
+const lab={id:'lab',afterDatasetsDraw(c){const o=c.config.options._o,x=c.ctx;x.save();x.font='12px sans-serif';x.textBaseline='middle';
+c.data.datasets.forEach((s,i)=>c.getDatasetMeta(i).data.forEach((b,j)=>{const v=s.data[j];if(!v||(o.st&&v<6))return;const t=v+o.u;
+if(o.h){x.textAlign='left';x.fillStyle=fg;x.fillText(t,b.x+4,b.y)}
+else if(o.st){x.textAlign='center';x.fillStyle='#fff';x.fillText(t,b.x,(b.y+b.base)/2)}
+else{x.textAlign='center';x.fillStyle=fg;x.fillText(t,b.x,b.y-9)}}));x.restore()}};
+const root=document.getElementById('root');
+S.forEach(([h,cs])=>{root.insertAdjacentHTML('beforeend','<h2>'+h+'</h2><div class="grid"></div>');const g=root.lastChild;
+cs.forEach(o=>{const d=document.createElement('div');d.className='card';d.innerHTML='<h3>'+o.t+'</h3><p>'+o.n+'</p><div class="w"><canvas></canvas></div>';g.appendChild(d);
+const sc=o.h?{x:{beginAtZero:true,grace:'12%',grid:{color:bd}},y:{grid:{display:false}}}:{x:{stacked:!!o.st,grid:{display:false}},y:{stacked:!!o.st,beginAtZero:true,max:o.m,grid:{color:bd},ticks:{callback:v=>v+o.u}}};
+new Chart(d.querySelector('canvas'),{type:'bar',plugins:[lab],data:{labels:o.l,datasets:o.d.map(([n,v,c])=>({label:n,data:v,backgroundColor:c,borderRadius:3}))},
+options:{_o:o,indexAxis:o.h?'y':'x',responsive:true,maintainAspectRatio:false,scales:sc,plugins:{legend:{display:o.d.length>1,position:'bottom'},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed[o.h?'x':'y']+o.u}}}}})})});
+</script></body></html>
